@@ -1,4 +1,6 @@
+let listaDeNumerosSorteados = []
 let numeroSecreto = parseInt(Math.random() * 10 + 1)
+
 let tentativas = 1
 
 let campo1 = document.querySelector('h1')
