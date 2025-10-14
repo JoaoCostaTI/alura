@@ -1,28 +1,24 @@
-let listaDeNumerosSorteados = []
-let numeroSecreto = parseInt(Math.random() * 10 + 1)
+/*
+10 itens ou mais, e/ou valor unitário igual ou superior a 100 reais
+*/ 
 
-let tentativas = 1
+function calcular(){
+    /*
+    let quantidade = parseInt(document.getElementById('quantidade').value);
+    let valor = parseFloat(document.getElementById('valor').value);
+    */
+    let quantidade = 12
+    let valor = 120
+    let total = quantidade * valor;
 
-let campo1 = document.querySelector('h1')
-let campo2 = document.querySelector('p')
-
-campo1.innerHTML = 'Jogo do número Secreto'
-campo2.innerHTML = 'Escolha um número entre 1 e 10'
-
-function chutar(){
-    let chute = parseInt(document.getElementById('chute').value)
-    let campoTentativas = tentativas > 1 ? 'Tentativas' : 'Tentativa'
-    if (chute == numeroSecreto){
-        campo2.innerHTML = `Você acertou o numero!<br>Utilizou ${tentativas} ${campoTentativas}`
-        document.getElementById('novoJogo').removeAttribute('disabled')
-    }else{
-        if(chute > numeroSecreto){
-            campo2.innerHTML = 'O numero secreto é MENOR'
-        }else{
-            campo2.innerHTML = 'O numero secreto é MAIOR'
-        }
-        tentativas++
-    
+    if(quantidade >= 10 || valor >= 100){
+        total = total - (total/100 * 5)
     }
+
+    console.log(`Valor Total: R$${total}`)
 }
 
+function reiniciar(){
+    quantidade.value = ''
+    valor.value = ''
+}
