@@ -1,12 +1,15 @@
+function calcularDescontoTotal(quantidadeDeJogos) {
+    let desconto = 0;
+    let i = 0;
 
-/*
-Distancia da Viagem
-Eficiencia do Carro
-preco gasolina
-velocidade media
-*/
+    while (i < quantidadeDeJogos) {
+        if (quantidadeDeJogos >= 5) {
+            desconto += 0.1 * 50;
+        } else if (quantidadeDeJogos >= 10) {
+            desconto += 0.2 * 50;
+        }
+        i++;
+    }
 
-function calcularCustoViagem(distancia, eficiencia, precoGasolina, velocidadeMedia){
-    let tempoViagem = distancia/velocidadeMedia
-    
+    return desconto;
 }
