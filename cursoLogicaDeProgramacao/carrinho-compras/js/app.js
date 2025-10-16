@@ -1,3 +1,7 @@
+let totalGeral;
+limpar()
+
+
 function adicionar(){
     /*Recuperar valores, nome do produto, quantidade e valor*/ 
     let produto = document.getElementById('produto').value;
@@ -5,14 +9,24 @@ function adicionar(){
     let valorUnitario = parseFloat(produto.split('R$')[1]);
     let quantidade = parseInt(document.getElementById('quantidade').value);
 
+    /* calcular o preço, o nosso subtotal */
     let valorTotal = quantidade * valorUnitario
 
-    alert(`Produto: ${nomeProduto}\nQuantidade: ${quantidade}\nValor Total: R$${valorTotal}`)
-    /* calcular o preço, o nosso subtotal */
     // adicionar produto no carrinho
+    let carrinho = document.getElementById('lista-produtos')
+    carrinho.innerHTML += `<section class="carrinho__produtos__produto">
+                                <span class="texto-azul">${quantidade}x</span> ${nomeProduto} <span class="texto-azul">R$${valorTotal}</span>
+                            </section>`
+    totalGeral += valorTotal
     // atualizar o valor total 
+    let campoTotal = document.getElementById('valor-total')
+    campoTotal.innerHTML = `R$ ${totalGeral}`
+    document.getElementById('quantidade').value = 0
+    
 }
 
 function limpar(){
-    alert('Voce clicou em LIMPAR')
+    totalGeral = 0;
+    document.getElementById('lista-produtos').innerHTML = ''
+    document.getElementById('valor-total').innerHTML = ''
 }
